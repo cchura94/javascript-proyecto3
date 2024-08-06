@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-100 p-8">
+    <h4 id="mi_json"></h4>
+    <h4 id="mi_json2"></h4>
+
+    <div id="mis_productos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+    </div>
+
+    <script>
+        // JSON
+        let producto1 = {
+            codigo: "TEC001",
+            nombre: "TECLADO",
+            color: "Azul",
+            cantidad: 12,
+            precio: 299.98,
+            imagen: "https://m.media-amazon.com/images/I/61w09t-kNuL._AC_UF894,1000_QL80_.jpg"
+        }
+        let producto2 = {
+            codigo: "TEC002",
+            nombre: "MONITOR",
+            color: "BLANCO",
+            cantidad: 6,
+            precio: 1299.98,
+            imagen: "https://img.freepik.com/free-photo/view-computer-monitor-display_23-2150757453.jpg"
+        }
+
+        let producto3 = {
+            codigo: "TEC002",
+            nombre: "ESCRITORIO",
+            color: "BLANCO",
+            cantidad: 6,
+            precio: 1299.98,
+            imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/LG_L194WT-SF_LCD_monitor.jpg/800px-LG_L194WT-SF_LCD_monitor.jpg"
+        }
+
+        let producto4 = {
+            codigo: "TEC002",
+            nombre: "PARLANTES",
+            color: "BLANCO",
+            cantidad: 6,
+            precio: 1299.98,
+            imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrYyCyzQLfxr2xJR-9HdupGgMboDowvvMirw&s"
+        }
+
+        let producto5 = {
+            codigo: "TEC001",
+            nombre: "TECLADO",
+            color: "Azul",
+            cantidad: 12,
+            precio: 299.98,
+            imagen: "https://m.media-amazon.com/images/I/61w09t-kNuL._AC_UF894,1000_QL80_.jpg"
+        }
+        // document.getElementById("mi_json").innerText = producto1
+        // document.getElementById("mi_json2").innerText = JSON.stringify(producto1)
+        let productos = [producto1, producto2, producto3, producto4, producto5];
+
+        let html = "";
+        productos.forEach(prod => {
+            html = html + `
+            <div class="bg-blue-200 p-4 rounded-lg shadow-lg">
+                <img src="${prod.imagen}" width="100px" class="w-full h-48 object-cover rounded-t-lg mb-4"/>
+                <h2 class="text-xl font-semibold mb-2">${prod.nombre}</h2>
+                <p class="text-gray-700 mb-1"><strong>COD: </strong>${prod.codigo}</p>
+                <p class="text-gray-700 mb-1"><strong>PRECIO: </strong>${prod.precio}</p>
+                <p class="text-gray-700 mb-1"><strong>COLOR: </strong>${prod.color}</p>
+                <p class="text-gray-700 mb-1"><strong>CANTIDAD: </strong>${prod.cantidad}</p>
+
+            </div>
+            `;
+        });
+
+        document.getElementById("mis_productos").innerHTML = html
+        
+
+    </script>    
+</body>
+</html>
